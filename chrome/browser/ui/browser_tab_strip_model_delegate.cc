@@ -151,6 +151,26 @@ void BrowserTabStripModelDelegate::RestoreTab() {
   chrome::RestoreTab(browser_);
 }
 
+void BrowserTabStripModelDelegate::SaveTabStates() {
+  DVLOG(1) << "SAVETABS: Attempting to save tab states...";
+  TabStripModel* tabStripModel = browser_->tab_strip_model();
+  int numTabs = tabStripModel->count();
+  for(int tabIndex = 0; tabIndex < numTabs; ++tabIndex) {
+    content::WebContents* contents = tabStripModel->GetWebContentsAt(tabIndex);
+    base::string16 title = contents->GetTitle();
+    GURL url = contents->GetURL();
+    DVLOG(1) << "SAVETABS: Found tab at index " << tabIndex << " with title " << title;
+    //ActiveTabNameURLPair tabPair(contents->GetTitle(), contents->GetURL());
+    saved_tab_urls.push_back(url);
+    // If open 3 tab over and override
+    // Have to make a function that checks if tab state has changed since last 
+    // time button was pressed, if false, then adds it to state?
+    // TODO: Make saved_tab_urls a hashmap so when you add a tab with a URL it will not duplicated
+    // TODO: checkout hashset or set instead of vector
+  }
+  DVLOG(1) << "SAVETABS: Got " << saved_tab_urls.size() << " tabs!";
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // BrowserTabStripModelDelegate, private:
 

@@ -39,9 +39,15 @@ class BrowserTabStripModelDelegate : public TabStripModelDelegate {
   RestoreTabType GetRestoreTabType() override;
   void RestoreTab() override;
 
+  // OUR SAVE TAB FUNCTION
+  void SaveTabStates() override;
+
   void CloseFrame();
 
   Browser* const browser_;
+
+  // Our save tab vector
+  std::vector<GURL>  saved_tab_urls;
 
   // The following factory is used to close the frame at a later time.
   base::WeakPtrFactory<BrowserTabStripModelDelegate> weak_factory_;

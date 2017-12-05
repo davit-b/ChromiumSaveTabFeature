@@ -97,6 +97,9 @@ content::WebContents* DuplicateTabAt(Browser* browser, int index);
 bool CanDuplicateTabAt(const Browser* browser, int index);
 void MuteSite(Browser* browser);
 void PinTab(Browser* browser);
+// New Code for Save State
+void SaveState(Browser* browser);
+
 void ConvertPopupToTabbedBrowser(Browser* browser);
 void Exit();
 void BookmarkCurrentPageIgnoringExtensionOverrides(Browser* browser);

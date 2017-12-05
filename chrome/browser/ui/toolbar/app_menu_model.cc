@@ -325,6 +325,10 @@ void AppMenuModel::LogMenuMetrics(int command_id) {
       }
       LogMenuAction(MENU_ACTION_NEW_INCOGNITO_WINDOW);
       break;
+    case IDC_SAVE_TAB_STATES:
+      // TODO Implement metric logging for Saved State Function
+      DVLOG(1) << "app_menu_model.cc case statement is hit";
+      break;
 
     // Bookmarks sub menu.
     case IDC_SHOW_BOOKMARK_BAR:
@@ -718,7 +722,14 @@ void AppMenuModel::Build() {
   AddItemWithStringId(IDC_NEW_WINDOW, IDS_NEW_WINDOW);
   if (ShouldShowNewIncognitoWindowMenuItem())
     AddItemWithStringId(IDC_NEW_INCOGNITO_WINDOW, IDS_NEW_INCOGNITO_WINDOW);
+
+
   AddSeparator(ui::NORMAL_SEPARATOR);
+  //  OUR CODE FOR ADDING A BUTTON SEPERATED BY SEPARATOR
+  //browser_->command_controller()->command_updater()->UpdateCommandEnabled(browser_, IDC_SAVE_TAB_STATES, true);
+  AddItem(IDC_SAVE_TAB_STATES, base::UTF8ToUTF16("Save tab state"));
+  AddSeparator(ui::NORMAL_SEPARATOR);
+  // Then we have to "#define IDC_SAVE_WORK_STATE 34007"
 
   if (!browser_->profile()->IsOffTheRecord()) {
     recent_tabs_sub_menu_model_ =

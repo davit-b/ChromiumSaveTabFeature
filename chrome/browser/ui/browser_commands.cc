@@ -740,6 +740,14 @@ void PinTab(Browser* browser) {
       TabStripModel::ContextMenuCommand::CommandTogglePinned);
 }
 
+// New Code for Save State
+void SaveState(Browser* browser) {
+  TabStripModel* tabStripModel = browser->tab_strip_model();
+  tabStripModel->delegate()->SaveTabStates();
+  DVLOG(1) << "SaveState function called in browser_commands.cc (DVLOG)";
+  return;
+}
+
 void MuteSite(Browser* browser) {
   TabStripModel::ContextMenuCommand command_id =
       base::FeatureList::IsEnabled(features::kSoundContentSetting)

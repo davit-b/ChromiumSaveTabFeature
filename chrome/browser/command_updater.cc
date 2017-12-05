@@ -47,8 +47,12 @@ bool CommandUpdater::ExecuteCommandWithDisposition(
     WindowOpenDisposition disposition) {
   if (SupportsCommand(id) && IsCommandEnabled(id)) {
     delegate_->ExecuteCommandWithDisposition(id, disposition);
+    DVLOG(1) << "command_updater hit true in the if-statement";
     return true;
+
+
   }
+  DVLOG(1) << "command_updater hit FALSE in the if-statement";
   return false;
 }
 

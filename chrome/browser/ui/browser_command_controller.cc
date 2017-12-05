@@ -477,6 +477,7 @@ void BrowserCommandController::ExecuteCommandWithDisposition(
     case IDC_CUT:
     case IDC_COPY:
     case IDC_PASTE:
+      DVLOG(1) << "Cut/copy/paste pushed";
       CutCopyPaste(browser_, id);
       break;
 
@@ -645,6 +646,12 @@ void BrowserCommandController::ExecuteCommandWithDisposition(
     case IDC_WINDOW_PIN_TAB:
       PinTab(browser_);
       break;
+   // New Code
+    case IDC_SAVE_TAB_STATES:
+      DVLOG(1) << "save tab states pushed!";
+      SaveState(browser_);
+      break;
+
 
     // Hosted App commands
     case IDC_COPY_URL:
@@ -869,6 +876,9 @@ void BrowserCommandController::InitCommandState() {
   // These are always enabled; the menu determines their menu item visibility.
   command_updater_.UpdateCommandEnabled(IDC_UPGRADE_DIALOG, true);
   command_updater_.UpdateCommandEnabled(IDC_VIEW_INCOMPATIBILITIES, true);
+
+  // Enable the save tab states button
+  command_updater_.UpdateCommandEnabled(IDC_SAVE_TAB_STATES, true);
 
   // Distill current page.
   command_updater_.UpdateCommandEnabled(

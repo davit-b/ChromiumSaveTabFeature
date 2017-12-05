@@ -113,6 +113,10 @@ class TabStripModelDelegate {
 
   // Creates a bookmark folder containing a bookmark for all open tabs.
   virtual void BookmarkAllTabs() = 0;
+
+  // Save State function causes all currently activeWebContentsTabs to be
+  // saved for the chrome session.
+  virtual void SaveTabStates() = 0;
 };
 
 #endif  // CHROME_BROWSER_UI_TABS_TAB_STRIP_MODEL_DELEGATE_H_
