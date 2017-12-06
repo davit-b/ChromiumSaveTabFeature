@@ -64,6 +64,8 @@ vs-chromium-project.txt
 /base/base_unittests_run.xml
 # See build/.gitignore for entries covering src/build.
 /buildtools
+# .log crap
+*.log
 # The Chrome OS build creates a /c symlink due to http://crbug.com/54866.
 /c
 /cdm

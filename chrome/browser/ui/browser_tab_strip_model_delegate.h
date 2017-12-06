@@ -5,6 +5,8 @@
 #ifndef CHROME_BROWSER_UI_BROWSER_TAB_STRIP_MODEL_DELEGATE_H_
 #define CHROME_BROWSER_UI_BROWSER_TAB_STRIP_MODEL_DELEGATE_H_
 
+#include <set>
+
 #include "base/compiler_specific.h"
 #include "base/macros.h"
 #include "base/memory/weak_ptr.h"
@@ -47,7 +49,8 @@ class BrowserTabStripModelDelegate : public TabStripModelDelegate {
   Browser* const browser_;
 
   // Our save tab vector
-  std::vector<GURL>  saved_tab_urls;
+  std::set<GURL> saved_tab_urls;
+//  std::vector<GURL>  saved_tab_urls;
 
   // The following factory is used to close the frame at a later time.
   base::WeakPtrFactory<BrowserTabStripModelDelegate> weak_factory_;
