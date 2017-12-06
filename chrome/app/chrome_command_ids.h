@@ -36,7 +36,7 @@
 #define IDC_NEW_WINDOW                  34000
 #define IDC_NEW_INCOGNITO_WINDOW        34001
 #define IDC_PIN_TO_START_SCREEN         34005
-  // Our Define IDC
+// IDC constant for Save Tab States action
 #define IDC_SAVE_TAB_STATES             34007
 #define IDC_CLOSE_WINDOW                34012
 #define IDC_ALWAYS_ON_TOP               34013

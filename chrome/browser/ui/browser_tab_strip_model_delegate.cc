@@ -159,16 +159,15 @@ void BrowserTabStripModelDelegate::SaveTabStates() {
     content::WebContents* contents = tabStripModel->GetWebContentsAt(tabIndex);
     base::string16 title = contents->GetTitle();
     GURL url = contents->GetURL();
-    DVLOG(0) << "SAVETABS: Found tab at index " << tabIndex << " with title " << title;
-    //ActiveTabNameURLPair tabPair(contents->GetTitle(), contents->GetURL());
+    DVLOG(0) << "SAVETABS: tab @ index: " << tabIndex << "title: " << title;
+
     saved_tab_urls.insert(url);
-    // If open 3 tab over and override
-    // Have to make a function that checks if tab state has changed since last
-    // time button was pressed, if false, then adds it to state?
-    // TODO: Make saved_tab_urls a hashmap so when you add a tab with a URL it will not duplicated
-    // TODO: checkout hashset or set instead of vector
   }
   DVLOG(0) << "SAVETABS: Got " << saved_tab_urls.size() << " tabs!";
+
+  // Clearing the set after printing for Debugging purpose
+  // until a listener for Tab Closing Option is added to remove a
+  saved_tab_urls.clear();
 }
 
 ////////////////////////////////////////////////////////////////////////////////

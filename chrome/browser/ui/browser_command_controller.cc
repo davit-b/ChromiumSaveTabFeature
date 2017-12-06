@@ -646,12 +646,11 @@ void BrowserCommandController::ExecuteCommandWithDisposition(
     case IDC_WINDOW_PIN_TAB:
       PinTab(browser_);
       break;
-   // New Code
+
+    // Case for Save Tab States button being pressed
     case IDC_SAVE_TAB_STATES:
-      DVLOG(1) << "save tab states pushed!";
       SaveState(browser_);
       break;
-
 
     // Hosted App commands
     case IDC_COPY_URL:
@@ -877,7 +876,7 @@ void BrowserCommandController::InitCommandState() {
   command_updater_.UpdateCommandEnabled(IDC_UPGRADE_DIALOG, true);
   command_updater_.UpdateCommandEnabled(IDC_VIEW_INCOMPATIBILITIES, true);
 
-  // Enable the save tab states button
+  // Enable the save tab states button with observer for press event
   command_updater_.UpdateCommandEnabled(IDC_SAVE_TAB_STATES, true);
 
   // Distill current page.

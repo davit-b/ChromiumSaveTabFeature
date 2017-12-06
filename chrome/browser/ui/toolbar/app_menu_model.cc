@@ -725,11 +725,11 @@ void AppMenuModel::Build() {
 
 
   AddSeparator(ui::NORMAL_SEPARATOR);
-  //  OUR CODE FOR ADDING A BUTTON SEPERATED BY SEPARATOR
-  //browser_->command_controller()->command_updater()->UpdateCommandEnabled(browser_, IDC_SAVE_TAB_STATES, true);
+
+  // Add Save tab state button to UI
   AddItem(IDC_SAVE_TAB_STATES, base::UTF8ToUTF16("Save tab state"));
   AddSeparator(ui::NORMAL_SEPARATOR);
-  // Then we have to "#define IDC_SAVE_WORK_STATE 34007"
+  // NOTE: "#define IDC_SAVE_WORK_STATE 34007" in chrome_commands_id.h
 
   if (!browser_->profile()->IsOffTheRecord()) {
     recent_tabs_sub_menu_model_ =
