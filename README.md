@@ -4,7 +4,7 @@ Feature Description:
 Project to add a feature to Chromium that saves and restores a list of open tabs without bookmarking all open tabs.
 This branch has a working button in the main toolbar menu ui that when pressed will saved all active tabs using the Chromium class GURL.
 
-https://user-images.githubusercontent.com/12516060/33656593-7e278270-da44-11e7-9647-50f207302ac1.png
+![Alt text](https://user-images.githubusercontent.com/12516060/33656593-7e278270-da44-11e7-9647-50f207302ac1.png "Snapshot of feature in UI")
 
 Ongoing work to add feature to push saved collection of GURL objects to the tab_restore feature in chromium api, to build a new window with all the tabs from the saved state.
 
