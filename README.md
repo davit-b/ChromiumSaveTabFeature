@@ -1,7 +1,9 @@
 # ![Logo](chrome/app/theme/chromium/product_logo_64.png) Chromium
 
-Chromium is an open-source browser project that aims to build a safer, faster,
-and more stable way for all users to experience the web.
+Project to add a feature to Chromium that saves and restores a list of open tabs without bookmarking all open tabs.
+This branch has a working button in the main toolbar menu ui that when pressed will saved all active tabs using the Chromium class GURL.
+
+Ongoing work to add feature to push saved collection of GURL objects to the tab_restore feature in chromium api, to build a new window with all the tabs from the saved state.
 
 The project's web site is https://www.chromium.org.
 
